@@ -5,37 +5,46 @@ import (
 )
 
 const (
-	ONE_POINT_SYMBOLS   = "aeioulnrstAEIOULNRST"
-	TWO_POINT_SYMBOLS   = "dgDG"
-	THREE_POINT_SYMBOLS = "bcmpBCMP"
-	FOUR_POINT_SYMBOLS  = "fhvwyFHVWY"
-	FIVE_POINT_SYMBOLS  = "kK"
-	EIGHT_POINT_SYMBOLS = "jxJX"
-	TEN_POINT_SYMBOLS   = "qzQZ"
+	onePointSymbols   = "aeioulnrstAEIOULNRST"
+	twoPointSymbols   = "dgDG"
+	threePointSymbols = "bcmpBCMP"
+	fourPointSymbols  = "fhvwyFHVWY"
+	fivePointSymbols  = "kK"
+	eightPointSymbols = "jxJX"
+	tenPointSymbols   = "qzQZ"
 )
 
+// Return amount of scores for a string with symbols
 func Score(str string) (points int) {
-	for _, leter := range str {
-		if strings.Contains(ONE_POINT_SYMBOLS, string(leter)) {
+	for _, leterRaw := range str {
+		leter := string(leterRaw)
+		if strings.Contains(onePointSymbols, leter) {
 			points += 1
+			continue
 		}
-		if strings.Contains(TWO_POINT_SYMBOLS, string(leter)) {
+		if strings.Contains(twoPointSymbols, leter) {
 			points += 2
+			continue
 		}
-		if strings.Contains(THREE_POINT_SYMBOLS, string(leter)) {
+		if strings.Contains(threePointSymbols, leter) {
 			points += 3
+			continue
 		}
-		if strings.Contains(FOUR_POINT_SYMBOLS, string(leter)) {
+		if strings.Contains(fourPointSymbols, leter) {
 			points += 4
+			continue
 		}
-		if strings.Contains(FIVE_POINT_SYMBOLS, string(leter)) {
+		if strings.Contains(fivePointSymbols, leter) {
 			points += 5
+			continue
 		}
-		if strings.Contains(EIGHT_POINT_SYMBOLS, string(leter)) {
+		if strings.Contains(eightPointSymbols, leter) {
 			points += 8
+			continue
 		}
-		if strings.Contains(TEN_POINT_SYMBOLS, string(leter)) {
+		if strings.Contains(tenPointSymbols, leter) {
 			points += 10
+			continue
 		}
 	}
 	return points
